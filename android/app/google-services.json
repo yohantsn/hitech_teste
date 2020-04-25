@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "413706928989",
+    "firebase_url": "https://hitech-a1c53.firebaseio.com",
+    "project_id": "hitech-a1c53",
+    "storage_bucket": "hitech-a1c53.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:413706928989:android:856f73fa87c5168c139eb4",
+        "android_client_info": {
+          "package_name": "com.holondevs.hitechteste"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "413706928989-366uedtubtotei50g6benreatcg6iisp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBnubvFfC3HNH87zrbwh9Wf8qB0enTY3cM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "413706928989-366uedtubtotei50g6benreatcg6iisp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
