@@ -35,7 +35,7 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   /* Ao clicar no botão o método iniciaProcesso é iniciado, com isso ele realiza
-    a consulta na classe consult_firebase, após isso é iniciado o método timer.
+    a consulta no método ConsultaFirebase, após isso é iniciado o método timer.
     Com isso é criado um loop, até que seja completado os 5 status disponíveis no Firebase.
   */
 
@@ -92,77 +92,86 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        key: _scaffoldKey,
-        appBar: AppBarWidget(),
-        backgroundColor: Colors.white,
-        body: Padding(
-          padding: EdgeInsets.all(10),
-          child: Align(
-            alignment: Alignment(0, 0.9),
-            child: Column(
-              children: <Widget>[
-                Card(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: new BorderRadius.circular(15.0),
+      key: _scaffoldKey,
+      appBar: AppBarWidget(),
+      backgroundColor: Colors.white,
+      body: Center(
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              Card(
+                shape: RoundedRectangleBorder(
+                  borderRadius: new BorderRadius.circular(15.0),
+                ),
+                elevation: 5,
+                margin: EdgeInsets.only(top: 20, bottom: 20),
+                child: AnimatedContainer(
+                  decoration: BoxDecoration(
+                    borderRadius: _borderRadius,
+                    color: _colorCard,
                   ),
-                  elevation: 5,
-                  child: AnimatedContainer(
-                    decoration: BoxDecoration(
-                      borderRadius: _borderRadius,
-                      color: _colorCard,
-                    ),
-                    duration: Duration(milliseconds: 600),
-                    padding: EdgeInsets.all(10),
-                    height: MediaQuery.of(context).size.width * 0.5,
-                    width: MediaQuery.of(context).size.width * 0.90,
+                  duration: Duration(milliseconds: 600),
+                  padding: EdgeInsets.all(10),
+                  height: MediaQuery.of(context).size.width * 0.75,
+                  width: MediaQuery.of(context).size.width * 0.90,
+                  child: Center(
                     child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      mainAxisSize: MainAxisSize.max,
                       children: <Widget>[
                         Padding(
-                          padding: EdgeInsets.all(10),
-                          child:
-                              Text("$_status", style: TextStyle(fontSize: 16)),
+                          padding: EdgeInsets.all(20),
+                          child: Text("$_status", style: TextStyle(fontSize: 22)),
                         ),
                         Padding(
-                          padding: EdgeInsets.all(10),
+                          padding: EdgeInsets.all(20),
                           child: Text(
                             "$_title",
-                            style: TextStyle(fontSize: 16),
+                            style: TextStyle(fontSize: 19),
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsets.all(10),
+                          padding: EdgeInsets.all(20),
                           child: Text("$_description",
-                              style: TextStyle(fontSize: 14)),
+                            style: TextStyle(fontSize: 16),
+                            textAlign: TextAlign.center,),
                         ),
                       ],
                     ),
                   ),
                 ),
-                SizedBox(
-                  height: 30,
-                ),
+              ),
+              SizedBox(
+                height: 30,
+              ),
 
-
-
-                /* Widget Button */
-                SizedBox(
-                  height: 40,
-                  width: MediaQuery.of(context).size.width * 0.90,
-                  child: RoundedLoadingButton(
-                    child: Text(
-                      "Iniciar Pedido",
-                      style: TextStyle(color: Colors.white),
-                    ),
-                    color: Colors.green,
-                    controller: _btnController,
-                    onPressed: () {
-                      iniciaProcesso(1);
-                    },
+              /* Widget Button */
+              SizedBox(
+                height: 40,
+                width: MediaQuery.of(context).size.width * 0.90,
+                child: RoundedLoadingButton(
+                  child: Text(
+                    "Iniciar Pedido",
+                    style: TextStyle(color: Colors.white, fontSize: 16),
                   ),
-                )
-              ],
-            ),
+                  color: Colors.green,
+                  controller: _btnController,
+                  onPressed: () {
+                    iniciaProcesso(1);
+                  },
+                ),
+              ),
+
+              SizedBox(
+                height: 10,
+              ),
+
+            ],
           ),
-        ));
+        ),
+      )
+    );
   }
 }
